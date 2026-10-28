@@ -2,12 +2,12 @@ import { annualRent, weeklyRent } from './rent';
 
 const HIGH_RENT_THRESHOLD_PENCE = 50_000 * 100;
 
-export function depositCapWeeks(monthlyRentPence: number): number {
-  return annualRent(monthlyRentPence) > HIGH_RENT_THRESHOLD_PENCE ? 6 : 5;
+export function depositCapWeeks(annualRentPence: number): number {
+  return annualRentPence > HIGH_RENT_THRESHOLD_PENCE ? 6 : 5;
 }
 
 export function depositCap(monthlyRentPence: number): number {
-  return Math.round(weeklyRent(monthlyRentPence) * depositCapWeeks(monthlyRentPence));
+  return Math.round(weeklyRent(monthlyRentPence) * depositCapWeeks(annualRent(monthlyRentPence)));
 }
 
 export function holdingDepositCap(monthlyRentPence: number): number {

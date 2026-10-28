@@ -11,11 +11,11 @@ let cap: number;
 
 describe('deposit', () => {
   it('uses five weeks for normal rents', () => {
-    expect(depositCapWeeks(150000)).toBe(5);
+    expect(depositCapWeeks(1800000)).toBe(5);
   });
 
   it('uses six weeks for high rents', () => {
-    expect(depositCapWeeks(500000)).toBe(6);
+    expect(depositCapWeeks(6000000)).toBe(6);
   });
 
   it('calculates the cap for £1,000 a month', () => {
